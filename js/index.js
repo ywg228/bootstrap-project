@@ -36,10 +36,10 @@ $(function () {
         ]
     });
 
-    $('.carousel-section').click(function () {
+   /* $('.carousel-section').click(function () {
         $(this).vegas('next');
     });
-
+*/
     //滚动监听
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
