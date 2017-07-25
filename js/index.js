@@ -19,9 +19,9 @@ $(function () {
     //全屏轮播图
     $('.carousel-section').vegas({
         slide: 0,
-        preload: false,
+        preload: true,
         timer: true,
-        overlay: './images/overlay_06.png',
+        /*overlay: './images/overlay_06.png',*/
         autoplay: true,
         loop: true,
         shuffle: true,
@@ -36,17 +36,19 @@ $(function () {
         ]
     });
 
-   /* $('.carousel-section').click(function () {
+    /*$('.carousel-section').click(function () {
         $(this).vegas('next');
-    });
-*/
+    });*/
+
     //滚动监听
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
             $('body').addClass('sticky-nav');
+            $('.navbar-brand').addClass('animated jello');
         } else {
             $('body').removeClass('sticky-nav');
             $('.navbar-collapse').removeClass('in');
+            $('.navbar-brand').removeClass('animated jello');
         }
     });
 
@@ -57,6 +59,7 @@ $(function () {
 
     //平滑滚动
     $('a[href*=#]:not([href=#]):not([data-toggle])').click(function () {
+        console.log(123141)
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var hash = this.hash;
             var target = $(this.hash);
@@ -64,7 +67,7 @@ $(function () {
             if (target.length) {
                 $('html,body').animate({
                     scrollTop: target.offset().top - 60
-                }, 500, function () {
+                }, 400, function () {
                     window.location.hash = hash;
                 });
                 return false;
