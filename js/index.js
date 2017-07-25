@@ -2,7 +2,7 @@ $(function () {
 
     //预加载
     $(window).load(function () {
-        $('.preloader').delay(1000).fadeOut('slow');
+        $('.preloader').delay(500).fadeOut('slow');
     });
 
     $('.navbar-nav a').click(function () {
@@ -10,7 +10,7 @@ $(function () {
     });
 
     //初始化轮播图高度
-    $('.carousel-section').css('height', $(window).height());
+   $('.carousel-section').css('height', $(window).height());
 
     $(window).resize(function () {
         $('.carousel-section').css('height', $(window).height());
@@ -21,7 +21,7 @@ $(function () {
         slide: 0,
         preload: true,
         timer: true,
-        /*overlay: './images/overlay_06.png',*/
+        overlay: './images/overlay_06.png',
         autoplay: true,
         loop: true,
         shuffle: true,
@@ -67,7 +67,7 @@ $(function () {
             if (target.length) {
                 $('html,body').animate({
                     scrollTop: target.offset().top - 60
-                }, 400, function () {
+                }, 500, function () {
                     window.location.hash = hash;
                 });
                 return false;
@@ -85,7 +85,7 @@ $(function () {
             callback: function (box) {
 
             },
-            scrollContainer: null
+            scrollContainer: 'body'
         }
     );
     wow.init();

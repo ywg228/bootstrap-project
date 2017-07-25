@@ -3,6 +3,7 @@ html {
     font-size: 14px;
     -webkit-font-smoothing: antialiased; /*让字体更清晰*/
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 html, body {
@@ -34,32 +35,37 @@ a:hover, a:focus, a:active {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #FFFFFF;
-    height: 100vh;
+    background-color: #fff;
     width: 100%;
+    height: 100%;
     z-index: 9999;
 }
 
-.preloader:before, .preloader:after {
+.preloader::before, .preloader::after {
     content: '';
     border: 5px solid #D19A04;
     width: 80px;
     height: 80px;
-    border-radius: 500px;
+    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     margin: -40px 0 0 -40px;
+    /* top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     margin: auto;*/
 }
 
-.preloader:before {
+.preloader::before {
     -webkit-animation: pulse-outer 0.8s ease-in infinite;
     -moz-animation: pulse-outer 0.8s ease-in infinite;
     -ms-animation: pulse-outer 0.8s ease-in infinite;
     animation: pulse-outer 0.8s ease-in infinite;
 }
 
-.preloader:after {
+.preloader::after {
     -webkit-animation: pulse-inner 0.8s linear infinite;
     -moz-animation: pulse-inner 0.8s linear infinite;
     -ms-animation: pulse-inner 0.8s linear infinite;
@@ -67,21 +73,6 @@ a:hover, a:focus, a:active {
 }
 
 @-webkit-keyframes pulse-outer {
-    0% {
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-    50% {
-        opacity: 0.5;
-        filter: alpha(opacity=50);
-    }
-    100% {
-        opacity: 0;
-        filter: alpha(opacity=0);
-    }
-}
-
-@-moz-keyframes pulse-outer {
     0% {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -124,19 +115,6 @@ a:hover, a:focus, a:active {
     }
 }
 
-@-moz-keyframes pulse-inner {
-    0% {
-        -moz-transform: scale(0);
-        opacity: 0;
-        filter: alpha(opacity=0);
-    }
-    100% {
-        -moz-transform: scale(1);
-        opacity: 1;
-        filter: alpha(opacity=100);
-    }
-}
-
 @keyframes pulse-inner {
     0% {
         -webkit-transform: scale(0);
@@ -168,6 +146,8 @@ a:hover, a:focus, a:active {
     top: -100%;
     left: 0;
     border: none;
+    opacity: 0;
+    filter: alpha(opacity=0);
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
@@ -256,6 +236,8 @@ a:hover, a:focus, a:active {
 }
 
 .sticky-nav .navbar {
+    opacity: 1;
+    filter: alpha(opacity=100);
     top: 0;
 }
 
@@ -264,6 +246,7 @@ a:hover, a:focus, a:active {
 /*Carousel*/
 .carousel-section {
     position: relative;
+    width: 100%;
     background-color: #D19A04;
     background-position: center center;
     background-size: cover;
@@ -325,7 +308,7 @@ a:hover, a:focus, a:active {
 
 .home-brand .icons .links > a {
     color: #eee;
-    font-size: 20px;
+    font-size: 23px;
     margin-right: 4px;
     transition: all .3s ease;
 }
@@ -344,18 +327,18 @@ a:hover, a:focus, a:active {
     position: absolute;
     left: 50%;
     bottom: 50px;
-    -webkit-animation: arrowDown 2s infinite ease;
-    -moz-animation: arrowDown 2s infinite ease;
-    -ms-animation: arrowDown 2s infinite ease;
-    animation: arrowDown 2s infinite ease;
+    -webkit-animation: arrow-down 2s infinite ease;
+    -moz-animation: arrow-down 2s infinite ease;
+    -ms-animation: arrow-down 2s infinite ease;
+    animation: arrow-down 2s infinite ease;
 }
 
-.fa-arrow-down {
+.ion-arrow-down-c {
     font-size: 30px;
     color: #eee;
 }
 
-@-webkit-keyframes arrowDown {
+@-webkit-keyframes arrow-down {
     0% {
         -webkit-transform: translateY(-5px);
         transform: translateY(-5px);
@@ -373,7 +356,7 @@ a:hover, a:focus, a:active {
     }
 }
 
-@keyframes arrowDown {
+@keyframes arrow-down {
     0% {
         -webkit-transform: translateY(-5px);
         transform: translateY(-5px);
@@ -403,7 +386,7 @@ a:hover, a:focus, a:active {
     display: block;
     position: fixed;
     right: 30px;
-    bottom: -1300%;
+    bottom: -100%;
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: all .3s ease;
@@ -419,7 +402,7 @@ a:hover, a:focus, a:active {
     filter: alpha(opacity=100);
 }
 
-.fa-arrow-circle-up {
+.ion-android-navigate {
     font-size: 30px;
     color: #D19A04;
 }
